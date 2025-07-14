@@ -24,3 +24,23 @@ body {
   color: var(--foreground);
   font-family: var(--font-family-sans, Arial, Helvetica, sans-serif);
 }
+
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle closest-side, rgba(6, 182, 212, 0.2), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
