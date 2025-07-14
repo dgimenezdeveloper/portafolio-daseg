@@ -10,8 +10,8 @@ export default function Header() {
       </Link>
       <nav>
         <ul className="flex items-center space-x-6 text-sm text-gray-300">
-          <li><a href="#proyectos" className="transition-colors hover:text-cyan-400">Proyectos</a></li>
           <li><a href="#habilidades" className="transition-colors hover:text-cyan-400">Habilidades</a></li>
+          <li><a href="#proyectos" className="transition-colors hover:text-cyan-400">Proyectos</a></li>
           <li><a href="#contacto" className="transition-colors hover:text-cyan-400">Contacto</a></li>
         </ul>
       </nav>
