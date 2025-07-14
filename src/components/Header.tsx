@@ -10,10 +10,26 @@ export default function Header() {
       </Link>
       <nav>
         <ul className="flex items-center space-x-6 text-sm text-gray-300">
-          <li><a href="#habilidades" className="transition-colors hover:text-cyan-400">Habilidades</a></li>
-          <li><a href="#proyectos" className="transition-colors hover:text-cyan-400">Proyectos</a></li>
-          <li><Link href="/cv" className="transition-colors hover:text-cyan-400">CV</Link></li>
-          <li><a href="#contacto" className="transition-colors hover:text-cyan-400">Contacto</a></li>
+          <li>
+            <Link href="/#habilidades" className="transition-colors hover:text-cyan-400">
+              Habilidades
+            </Link>
+          </li>
+          <li>
+            <Link href="/#proyectos" className="transition-colors hover:text-cyan-400">
+              Proyectos
+            </Link>
+          </li>
+          <li>
+            <Link href="/cv" className="transition-colors hover:text-cyan-400">
+              CV
+            </Link>
+          </li>
+          <li>
+            <Link href="/#contacto" className="transition-colors hover:text-cyan-400">
+              Contacto
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
