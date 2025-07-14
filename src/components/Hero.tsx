@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { cvData } from '@/data/cvData';
 
 export default function Hero() {
   return (
@@ -29,9 +30,8 @@ export default function Hero() {
         Hola, soy Darío Gimenez
       </h1>
 
-      <p className="max-w-xl text-lg md:text-xl text-gray-400 mb-8">
-        Desarrollador Web Full Stack. Transformo ideas en aplicaciones web robustas y escalables,
-        desde el Frontend hasta el Backend.
+      <p className="max-w-2xl text-lg md:text-xl text-gray-400 mb-8 ">
+        {cvData.aboutMeSummary}
       </p>
 
       <div className="flex items-center space-x-5">
