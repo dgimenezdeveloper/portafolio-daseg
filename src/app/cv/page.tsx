@@ -3,8 +3,19 @@ import { cvData } from '@/data/cvData';
 import { motion } from 'framer-motion';
 import { FaDownload, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 
+// Define a type for Timeline items
+type TimelineItemType = {
+  period: string;
+  role?: string;
+  degree?: string;
+  company?: string;
+  institution?: string;
+  location: string;
+  description: string | string[];
+};
+
 // El componente TimelineItem se vuelve más flexible
-const TimelineItem = ({ item, type }: { item: any, type: 'experience' | 'education' }) => (
+const TimelineItem = ({ item }: { item: TimelineItemType }) => (
   <motion.div
     className="relative pl-8 mb-8 border-l-2 border-gray-700"
     initial={{ opacity: 0, x: -20 }}
@@ -50,13 +61,13 @@ export default function CVPage() {
       {/* --- EXPERIENCIA --- */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold flex items-center gap-3 border-b-2 border-cyan-500 pb-2 mb-8"><FaBriefcase />Experiencia</h2>
-        <div>{cvData.experience.map((exp, i) => <TimelineItem key={i} item={exp} type="experience" />)}</div>
+        <div>{cvData.experience.map((exp, i) => <TimelineItem key={i} item={exp} />)}</div>
       </section>
 
       {/* --- EDUCACIÓN --- */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold flex items-center gap-3 border-b-2 border-cyan-500 pb-2 mb-8"><FaGraduationCap />Formación</h2>
-        <div>{cvData.education.map((edu, i) => <TimelineItem key={i} item={edu} type="education" />)}</div>
+        <div>{cvData.education.map((edu, i) => <TimelineItem key={i} item={edu} />)}</div>
       </section>
       
        {/* --- APTITUDES --- */}
