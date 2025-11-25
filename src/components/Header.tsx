@@ -23,16 +23,21 @@ export default function Header() {
       initial="hidden"
       animate="visible"
     >
-      <Link href="/" className="flex items-center gap-2 group">
-        <Image
-          src="/images/logo/daseg-logo.png"
-          alt="Daseg logo"
-          width={40}
-          height={40}
-          className="transition-transform duration-200 group-hover:scale-110 drop-shadow-lg"
-          priority
-        />
-        
+      <Link href="/" className="flex items-center gap-3 group">
+        <span className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-900 via-cyan-900 to-gray-800 shadow-2xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+          <Image
+            src="/images/logo/daseg-logo.png"
+            alt="Daseg logo"
+            width={110}
+            height={110}
+            className="object-contain drop-shadow-[0_2px_16px_rgba(0,255,255,0.25)] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_4px_32px_rgba(0,255,255,0.45)]"
+            priority
+          />
+          {/* Glow cian exterior */}
+          <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-cyan-400/10 group-hover:ring-4 group-hover:ring-cyan-300/30" />
+          {/* Overlay para mejorar contraste del texto del logo */}
+          <span className="absolute inset-0 rounded-full bg-black/20 pointer-events-none" />
+        </span>
       </Link>
       <nav>
         <ul className="flex items-center space-x-6 text-lg text-gray-300 font-bold ">
