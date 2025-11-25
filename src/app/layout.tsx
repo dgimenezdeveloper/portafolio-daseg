@@ -25,10 +25,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="!scroll-smooth">
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/favicon_io/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo/favicon_io/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/favicon_io/favicon-16x16.png" />
+        <link rel="manifest" href="/images/logo/favicon_io/site.webmanifest" />
+        <link rel="shortcut icon" href="/images/logo/favicon_io/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#0f172a" />
+        <meta name="theme-color" content="#0f172a" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header /> {/* 2. Añade el componente aquí */}
+        <Header />
         {children}
       </body>
     </html>
