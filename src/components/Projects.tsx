@@ -16,15 +16,20 @@ const containerVariants = {
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="py-24 px-4 bg-gray-900/50">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Proyectos que He Construido</h2>
-        <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-          Aquí tienes una selección de mis trabajos, desde landing pages hasta aplicaciones interactivas.
+    <section
+      id="proyectos"
+      className="py-28 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800/80 relative"
+    >
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-cyan-400 drop-shadow-lg tracking-tight">
+          Proyectos Destacados
+        </h2>
+        <p className="text-gray-300 text-xl mb-14 max-w-2xl mx-auto font-light">
+          Selección profesional de soluciones digitales: desde sistemas empresariales hasta experiencias interactivas.
         </p>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -35,6 +40,9 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
+
+      {/* Glow decorativo de fondo */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-cyan-500/10 blur-3xl rounded-full z-0" />
     </section>
   );
 }
