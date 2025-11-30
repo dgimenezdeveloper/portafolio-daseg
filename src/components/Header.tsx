@@ -1,8 +1,10 @@
 "use client";
 
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import ThemeToggle from './ThemeToggle';
 
 const headerVariants = {
   hidden: { y: -40, opacity: 0 },
@@ -39,7 +41,7 @@ export default function Header() {
           <span className="absolute inset-0 rounded-full bg-black/20 pointer-events-none" />
         </span>
       </Link>
-      <nav>
+      <nav className="flex items-center">
         <ul className="flex items-center space-x-6 text-lg text-gray-300 font-bold ">
           <li>
             <Link href="/#habilidades" className="transition-colors hover:text-cyan-400">
@@ -62,6 +64,7 @@ export default function Header() {
             </Link>
           </li>
         </ul>
+        <ThemeToggle />
       </nav>
     </motion.header>
   );

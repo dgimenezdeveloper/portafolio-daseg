@@ -50,10 +50,10 @@ export default function Contact() {
 
   return (
     <section id="contacto" className="py-32 mt-24 px-4 bg-gray-900">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-2xl mx-auto text-center bg-gray-800/60 rounded-2xl shadow-lg border border-gray-700/40 p-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">¡Hablemos!</h2>
-          <p className="text-gray-400 text-lg mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400 drop-shadow-lg tracking-tight">¡Hablemos!</h2>
+          <p className="text-gray-400 text-lg mb-10 font-light">
             ¿Tienes un proyecto en mente? Completa el formulario y me pondré en contacto lo antes posible.
           </p>
         </motion.div>

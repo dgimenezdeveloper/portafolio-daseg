@@ -79,8 +79,8 @@ export default function Skills() {
               <motion.div
                 key={index}
                 className="flex flex-col items-center justify-center gap-2 p-4 w-32 h-32
-                           bg-gray-800/50 rounded-lg shadow-md transition-all
-                           hover:bg-cyan-400/20 hover:shadow-cyan-400/30 hover:shadow-lg"
+                           bg-gray-800/60 rounded-xl shadow-lg border border-gray-700/40 transition-all
+                           hover:bg-cyan-400/20 hover:shadow-cyan-400/30 hover:scale-105 hover:border-cyan-400/40"
                 variants={itemVariants}
               >
                 <IconComponent size={40} className={skill.color} />
