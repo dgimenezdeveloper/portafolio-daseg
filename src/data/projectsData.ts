@@ -67,6 +67,28 @@ export const projectsData: Project[] = [
     },
   },
   {
+    title: "Cesar Valls Propiedades",
+    description:
+      "Sitio web institucional y catálogo de propiedades para Cesar Valls Propiedades. Permite la gestión y visualización de inmuebles, contacto directo y experiencia optimizada para usuarios y administradores.",
+    image: "/projects/cesar-valls-propiedades/cesar-valls-propiedades-01.png",
+    gallery: {
+      "Principal": [
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-01.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-02.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-03.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-04.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-05.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-06.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-07.png",
+      ]
+    },
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Inmobiliaria"],
+    links: {
+      github: "https://github.com/dgimenezdeveloper/cesarvalls-propiedades",
+      live: "https://cesarvalls-propiedades.vercel.app/",
+    },
+  },
+  {
     title: "Luminova ERP",
     description:
       "ERP modular para Luminova, abarcando compras, ventas, producción y administración en una sola plataforma.",
@@ -244,6 +266,49 @@ export const projectsData: Project[] = [
     links: {
       github: "https://github.com/dgimenezdeveloper/simple-layout",
       live: "https://simplelayout2023.netlify.app/",
+    },
+  },
+  {
+    title: "Cesar Valls Propiedades",
+    description:
+      "Sitio web institucional y catálogo de propiedades para Cesar Valls Propiedades. Permite la gestión y visualización de inmuebles, contacto directo y experiencia optimizada para usuarios y administradores.",
+    image: "/projects/cesar-valls-propiedades/cesar-valls-propiedades-01.png",
+    gallery: {
+      "Principal": [
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-01.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-02.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-03.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-04.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-05.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-06.png",
+        "/projects/cesar-valls-propiedades/cesar-valls-propiedades-07.png",
+      ]
+    },
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Inmobiliaria"],
+    links: {
+      github: "https://github.com/dgimenezdeveloper/cesarvalls-propiedades",
+      live: "https://cesarvalls-propiedades.vercel.app/",
+    },
+  },
+  {
+    title: "Invergest",
+    description:
+      "Plataforma web para la gestión de inversiones y propiedades, con panel de administración, visualización de activos y experiencia de usuario moderna.",
+    image: "/projects/invergest/invergest-01.png",
+    gallery: {
+      "Principal": [
+        "/projects/invergest/invergest-01.png",
+        "/projects/invergest/invergest-02.png",
+        "/projects/invergest/invergest-03.png",
+        "/projects/invergest/invergest-04.png",
+        "/projects/invergest/invergest-05.png",
+        "/projects/invergest/invergest-06.png",
+      ]
+    },
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Inversiones"],
+    links: {
+      github: "https://github.com/dgimenezdeveloper/invergest",
+      live: "https://invergest.vercel.app/",
     },
   },
 ];
