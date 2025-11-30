@@ -85,10 +85,12 @@ export default function ProjectCard({ project }: ProjectProps) {
         <div className="relative w-full h-56 overflow-hidden">
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`Captura de pantalla del proyecto ${project.title} - ${project.description.substring(0, 80)}`}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            loading={recentProjects.includes(project.title) ? "eager" : "lazy"}
+            quality={75}
             priority={recentProjects.includes(project.title)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -101,20 +103,20 @@ export default function ProjectCard({ project }: ProjectProps) {
         </div>
 
         {/* Contenido de la tarjeta */}
-        <div className="flex flex-grow flex-col p-7">
-          <h3 className="mb-2 text-2xl font-extrabold text-primary tracking-tight">
+        <div className="flex flex-grow flex-col p-5 sm:p-6 md:p-7">
+          <h3 className="mb-2 text-xl sm:text-2xl font-extrabold text-primary tracking-tight">
             {project.title}
           </h3>
-          <p className="mb-5 flex-grow text-base leading-relaxed text-secondary">
+          <p className="mb-4 sm:mb-5 flex-grow text-sm sm:text-base leading-relaxed text-secondary">
             {project.description}
           </p>
 
           {/* Tags/Tecnologías */}
-          <div className="mb-7 flex flex-wrap gap-2">
+          <div className="mb-5 sm:mb-6 md:mb-7 flex flex-wrap gap-1.5 sm:gap-2">
             {project.tags.map((tag, index) => (
               <span
                 key={index}
-                className="tag-chip"
+                className="tag-chip text-[0.65rem] sm:text-xs"
               >
                 {tag}
               </span>
@@ -122,25 +124,25 @@ export default function ProjectCard({ project }: ProjectProps) {
           </div>
 
           {/* Enlaces y galería */}
-          <div className="mt-auto flex flex-wrap gap-3">
+          <div className="mt-auto flex flex-wrap gap-2 sm:gap-3">
             <a
               href={project.links.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-soft bg-surface px-4 py-2 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-2xl border border-soft bg-surface px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-primary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
               aria-label={`Ver ${project.title} en vivo`}
             >
-              <FaExternalLinkAlt size={14} />
+              <FaExternalLinkAlt size={12} className="sm:w-[14px] sm:h-[14px]" />
               <span>Ver demo</span>
             </a>
             <a
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-soft bg-surface px-4 py-2 text-sm font-semibold text-secondary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-2xl border border-soft bg-surface px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-secondary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
               aria-label={`Ver código de ${project.title} en GitHub`}
             >
-              <FaGithub size={16} />
+              <FaGithub size={14} className="sm:w-4 sm:h-4" />
               <span>Código</span>
             </a>
             {/* Botón galería */}

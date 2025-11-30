@@ -59,17 +59,17 @@ export default function Skills() {
   const skillsData = getSkillsData();
 
   return (
-    <section id="habilidades" className="section-shell">
-      <div className="max-w-5xl mx-auto text-center space-y-4">
-        <span className="tag-chip mx-auto">Stack principal</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary">Mis Habilidades Técnicas</h2>
-        <p className="text-muted text-lg">
+    <section id="habilidades" className="section-shell" aria-labelledby="skills-heading">
+      <div className="max-w-5xl mx-auto text-center space-y-3 sm:space-y-4 px-4 sm:px-6">
+        
+        <h2 id="skills-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">Mis Habilidades Técnicas</h2>
+        <p className="text-muted text-base sm:text-lg px-2">
           Tecnologías y herramientas con las que me siento cómodo trabajando.
         </p>
       </div>
 
       <motion.div
-        className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5"
+        className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -80,11 +80,11 @@ export default function Skills() {
           return (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-soft bg-surface shadow-card-soft p-5 text-primary transition-transform duration-300 hover:-translate-y-1"
+              className="flex flex-col items-center justify-center gap-2 sm:gap-3 rounded-2xl border border-soft bg-surface shadow-card-soft p-4 sm:p-5 text-primary transition-transform duration-300 hover:-translate-y-1"
               variants={itemVariants}
             >
-              <IconComponent size={36} className={skill.color} />
-              <span className="text-sm font-semibold text-secondary text-center">{skill.name}</span>
+              <IconComponent size={32} className={`sm:w-9 sm:h-9 ${skill.color}`} />
+              <span className="text-xs sm:text-sm font-semibold text-secondary text-center">{skill.name}</span>
             </motion.div>
           );
         })}

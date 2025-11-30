@@ -15,8 +15,74 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dario Gimenez | Desarrollo FullStack",
-  description: "Portafolio profesional de desarrollo fullstack de Darío Gimenez",
+  title: {
+    default: "Darío Gimenez | Desarrollador Full Stack",
+    template: "%s | Darío Gimenez"
+  },
+  description: "Portafolio profesional de Darío Gimenez, Desarrollador Full Stack especializado en React, Next.js, Node.js, Python y Django. Explora mis proyectos y experiencia en desarrollo web.",
+  keywords: [
+    "Darío Gimenez",
+    "Desarrollador Full Stack",
+    "Programador",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "Django",
+    "TypeScript",
+    "JavaScript",
+    "Desarrollo Web",
+    "Frontend",
+    "Backend",
+    "Portfolio"
+  ],
+  authors: [{ name: "Darío Gimenez", url: "https://github.com/dgimenezdeveloper" }],
+  creator: "Darío Gimenez",
+  publisher: "Darío Gimenez",
+  metadataBase: new URL('https://daseg.vercel.app'), // Actualizar con tu dominio real
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "https://daseg.vercel.app",
+    title: "Darío Gimenez | Desarrollador Full Stack",
+    description: "Portafolio profesional de Darío Gimenez. Desarrollador Full Stack especializado en crear soluciones web modernas y escalables.",
+    siteName: "Darío Gimenez Portfolio",
+    images: [
+      {
+        url: "/images/og-image.png", // Crear esta imagen
+        width: 1200,
+        height: 630,
+        alt: "Darío Gimenez - Desarrollador Full Stack"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Darío Gimenez | Desarrollador Full Stack",
+    description: "Portafolio profesional de desarrollo web y software. Explora mis proyectos y experiencia.",
+    images: ["/images/og-image.png"], // Crear esta imagen
+    creator: "@daseg" // Actualizar con tu usuario de Twitter si lo tienes
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // google: '', // Añadir código de verificación de Google Search Console
+    // yandex: '', // Añadir si es necesario
+    // bing: '', // Añadir si es necesario
+  },
+  alternates: {
+    canonical: "https://daseg.vercel.app",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({

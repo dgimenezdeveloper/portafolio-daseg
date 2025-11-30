@@ -19,18 +19,19 @@ export default function Projects() {
     <section
       id="proyectos"
       className="section-shell projects-section relative overflow-hidden"
+      aria-labelledby="projects-heading"
     >
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-6xl mx-auto text-center relative z-10 px-4 sm:px-6">
 
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-primary tracking-tight">
+        <h2 id="projects-heading" className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4 text-primary tracking-tight">
           Proyectos Destacados
         </h2>
-        <p className="text-secondary text-lg md:text-xl mb-14 max-w-2xl mx-auto">
+        <p className="text-secondary text-base sm:text-lg md:text-xl mb-10 sm:mb-12 md:mb-14 max-w-2xl mx-auto px-4">
           Selección profesional de soluciones digitales: desde sistemas empresariales hasta experiencias interactivas.
         </p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 text-left"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

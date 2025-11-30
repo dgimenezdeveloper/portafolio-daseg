@@ -49,29 +49,31 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="section-shell">
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="contacto" className="section-shell" aria-labelledby="contact-heading">
+      <div className="mx-auto max-w-3xl text-center px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-primary">¡Hablemos!</h2>
-          <p className="text-muted text-lg mt-3">
+          <h2 id="contact-heading" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-primary">¡Hablemos!</h2>
+          <p className="text-muted text-base sm:text-lg mt-2 sm:mt-3 px-2">
             ¿Tienes un proyecto en mente? Completa el formulario y me pondré en contacto lo antes posible.
           </p>
         </motion.div>
 
         <motion.form
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-10 space-y-5 rounded-3xl border border-soft bg-surface px-6 py-8 text-left shadow-card-soft"
+          className="mt-8 sm:mt-10 space-y-4 sm:space-y-5 rounded-3xl border border-soft bg-surface px-5 sm:px-6 py-6 sm:py-8 text-left shadow-card-soft"
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div>
-            <label htmlFor="name" className="mb-1 block text-sm font-semibold text-secondary">Nombre</label>
+            <label htmlFor="name" className="mb-1 block text-xs sm:text-sm font-semibold text-secondary">Nombre</label>
             <input
               {...register('name')}
               id="name"
-              className="w-full rounded-2xl border border-soft bg-surface px-4 py-3 text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
+              className="w-full rounded-2xl border border-soft bg-surface px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
+              aria-invalid={errors.name ? "true" : "false"}
+              aria-describedby={errors.name ? "name-error" : undefined}
             />
-            {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
+            {errors.name && <p id="name-error" className="mt-1 text-sm text-red-500" role="alert">{errors.name.message}</p>}
           </div>
           <div>
             <label htmlFor="email" className="mb-1 block text-sm font-semibold text-secondary">Email</label>
@@ -92,11 +94,11 @@ export default function Contact() {
             />
             {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
           </div>
-          <div className="pt-3 text-center">
+          <div className="pt-2 sm:pt-3 text-center">
             <button
               type="submit"
               disabled={formState.status === 'loading'}
-              className="btn-ghost disabled:cursor-not-allowed disabled:opacity-70"
+              className="btn-ghost text-sm sm:text-base disabled:cursor-not-allowed disabled:opacity-70"
             >
               {formState.status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
             </button>
