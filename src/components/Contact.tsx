@@ -49,7 +49,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-24 px-4 bg-gray-900">
+    <section id="contacto" className="py-32 mt-24 px-4 bg-gray-900">
       <div className="max-w-2xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">¡Hablemos!</h2>
