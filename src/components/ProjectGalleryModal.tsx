@@ -62,7 +62,7 @@ export default function ProjectGalleryModal({
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-xl p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -71,7 +71,7 @@ export default function ProjectGalleryModal({
       >
         {/* Modal content */}
         <motion.div
-          className="relative bg-gray-900 rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col border border-gray-700/50"
+          className="relative flex h-[90vh] w-full max-w-7xl flex-col rounded-3xl border border-soft bg-surface shadow-card"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
@@ -79,14 +79,14 @@ export default function ProjectGalleryModal({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
-            <h2 className="text-2xl font-bold text-white">{projectTitle}</h2>
+          <div className="flex items-center justify-between border-b border-soft p-6">
+            <h2 className="text-2xl font-bold text-primary">{projectTitle}</h2>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-cyan-400 text-3xl font-bold focus:outline-none transition-colors"
+              className="text-muted transition-colors hover:text-[var(--accent)]"
               aria-label="Cerrar galería"
             >
-              ×
+              <span className="text-3xl font-bold leading-none">×</span>
             </button>
           </div>
 
@@ -94,20 +94,20 @@ export default function ProjectGalleryModal({
           <div className="flex flex-1 overflow-hidden">
             {/* Sidebar de secciones (solo si hay más de una sección) */}
             {sectionNames.length > 1 && (
-              <div className="w-48 bg-gray-800/50 border-r border-gray-700/50 overflow-y-auto">
-                <div className="p-4 space-y-2">
+              <div className="w-48 border-r border-soft bg-surface-muted/70 overflow-y-auto">
+                <div className="space-y-2 p-4">
                   {sectionNames.map((section) => (
                     <button
                       key={section}
                       onClick={() => handleSectionChange(section)}
-                      className={`w-full text-left px-4 py-3 rounded-lg transition-all font-medium text-sm ${
+                      className={`w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition-all ${
                         currentSection === section
-                          ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                          : "text-gray-300 hover:bg-gray-700/50 hover:text-white"
+                          ? "border border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
+                          : "text-muted hover:bg-surface"
                       }`}
                     >
                       {section}
-                      <span className="text-xs block text-gray-400 mt-1">
+                      <span className="mt-1 block text-xs text-muted">
                         {sections[section].length} {sections[section].length === 1 ? "imagen" : "imágenes"}
                       </span>
                     </button>
@@ -117,9 +117,9 @@ export default function ProjectGalleryModal({
             )}
 
             {/* Área principal */}
-            <div className="flex-1 flex flex-col p-6">
+            <div className="flex flex-1 flex-col p-6">
               {/* Imagen principal */}
-              <div className="flex-1 relative flex items-center justify-center mb-4 bg-gray-800/30 rounded-xl overflow-hidden">
+              <div className="relative mb-4 flex flex-1 items-center justify-center overflow-hidden rounded-2xl border border-soft bg-surface-muted">
                 <Image
                   src={currentImage}
                   alt={`${currentSection} - Imagen ${currentIndex + 1}`}
@@ -134,14 +134,14 @@ export default function ProjectGalleryModal({
                   <>
                     <button
                       onClick={() => setCurrentIndex((c) => (c - 1 + currentImages.length) % currentImages.length)}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gray-900/80 text-cyan-300 hover:bg-cyan-900/60 transition flex items-center justify-center text-2xl font-bold border border-cyan-500/30"
+                      className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-soft bg-surface text-2xl font-bold text-[var(--accent)] transition hover:border-[var(--accent)]"
                       aria-label="Anterior"
                     >
                       ‹
                     </button>
                     <button
                       onClick={() => setCurrentIndex((c) => (c + 1) % currentImages.length)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gray-900/80 text-cyan-300 hover:bg-cyan-900/60 transition flex items-center justify-center text-2xl font-bold border border-cyan-500/30"
+                      className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-soft bg-surface text-2xl font-bold text-[var(--accent)] transition hover:border-[var(--accent)]"
                       aria-label="Siguiente"
                     >
                       ›
@@ -154,24 +154,24 @@ export default function ProjectGalleryModal({
               <div className="space-y-4">
                 {/* Contador */}
                 <div className="text-center">
-                  <span className="text-gray-300 text-sm font-medium">
+                  <span className="text-sm font-medium text-secondary">
                     {currentIndex + 1} / {currentImages.length} 
-                    {sectionNames.length > 1 && <span className="text-cyan-400 ml-2">• {currentSection}</span>}
+                    {sectionNames.length > 1 && <span className="ml-2 text-[var(--accent)]">• {currentSection}</span>}
                   </span>
                 </div>
 
                 {/* Miniaturas */}
                 {currentImages.length > 1 && (
-                  <div className="flex gap-2 overflow-x-auto max-w-full pb-2 justify-center">
+                  <div className="flex max-w-full justify-center gap-2 overflow-x-auto pb-2">
                     {currentImages.map((img, idx) => (
                       <button
                         key={img}
                         onClick={() => setCurrentIndex(idx)}
-                        className={`w-20 h-16 rounded-lg border-2 ${
+                        className={`h-16 w-20 rounded-xl border-2 ${
                           idx === currentIndex
-                            ? "border-cyan-400 ring-2 ring-cyan-400/30"
-                            : "border-transparent hover:border-cyan-300/50"
-                        } overflow-hidden bg-gray-800 flex-shrink-0 transition-all`}
+                            ? "border-[var(--accent)] ring-2 ring-[var(--accent)] ring-opacity-30"
+                            : "border-transparent hover:border-[var(--accent)] hover:border-opacity-40"
+                        } flex-shrink-0 overflow-hidden bg-surface transition-all`}
                         aria-label={`Ver imagen ${idx + 1}`}
                       >
                         <Image

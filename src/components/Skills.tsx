@@ -2,13 +2,13 @@
 
 import { FaHtml5, FaCss3Alt, FaReact, FaVuejs, FaPython, FaGitAlt, FaGithub, FaSass, FaNodeJs } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
-import { SiTailwindcss, SiMysql, SiMongodb, SiDjango, SiFlask } from 'react-icons/si';
+import { SiTailwindcss, SiMysql, SiMongodb, SiDjango, SiFlask, SiTypescript, SiNextdotjs, SiPostgresql, SiSqlite } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
 const getSkillsData = () => [
 	// Lenguajes de programación
-	{ name: 'JavaScript', icon: IoLogoJavascript, color: 'text-yellow-400' },
-	{ name: 'TypeScript', icon: IoLogoJavascript, color: 'text-blue-600' },
+  { name: 'JavaScript', icon: IoLogoJavascript, color: 'text-yellow-400' },
+  { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
 	{ name: 'Python', icon: FaPython, color: 'text-blue-400' },
 
 	// Frontend
@@ -16,8 +16,8 @@ const getSkillsData = () => [
 	{ name: 'CSS3', icon: FaCss3Alt, color: 'text-blue-500' },
 	{ name: 'Sass', icon: FaSass, color: 'text-pink-500' },
 	{ name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-400' },
-	{ name: 'React', icon: FaReact, color: 'text-cyan-400' },
-	{ name: 'Next.js', icon: FaReact, color: 'text-gray-800' },
+  { name: 'React', icon: FaReact, color: 'text-cyan-400' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'text-primary' },
 	{ name: 'Vue.js', icon: FaVuejs, color: 'text-green-500' },
 
 	// Backend
@@ -28,9 +28,9 @@ const getSkillsData = () => [
 
 	// Bases de datos
 	{ name: 'MySQL', icon: SiMysql, color: 'text-blue-600' },
-	{ name: 'PostgreSQL', icon: SiMysql, color: 'text-blue-700' },
-	{ name: 'MongoDB', icon: SiMongodb, color: 'text-green-500' },
-	{ name: 'sqlite', icon: SiMysql, color: 'text-gray-500' },
+  { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-sky-700' },
+  { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500' },
+  { name: 'SQLite', icon: SiSqlite, color: 'text-gray-500' },
 
 	// Control de versiones
 	{ name: 'Git', icon: FaGitAlt, color: 'text-orange-600' },
@@ -59,37 +59,36 @@ export default function Skills() {
   const skillsData = getSkillsData();
 
   return (
-    <section id="habilidades" className="py-24 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Mis Habilidades Técnicas</h2>
-        <p className="text-gray-400 text-lg mb-12">
+    <section id="habilidades" className="section-shell">
+      <div className="max-w-5xl mx-auto text-center space-y-4">
+        <span className="tag-chip mx-auto">Stack principal</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary">Mis Habilidades Técnicas</h2>
+        <p className="text-muted text-lg">
           Tecnologías y herramientas con las que me siento cómodo trabajando.
         </p>
-
-        <motion.div
-          className="flex flex-wrap justify-center items-center gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {skillsData.map((skill, index) => {
-            const IconComponent = skill.icon;
-            return (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center justify-center gap-2 p-4 w-32 h-32
-                           bg-gray-800/60 rounded-xl shadow-lg border border-gray-700/40 transition-all
-                           hover:bg-cyan-400/20 hover:shadow-cyan-400/30 hover:scale-105 hover:border-cyan-400/40"
-                variants={itemVariants}
-              >
-                <IconComponent size={40} className={skill.color} />
-                <span className="text-sm font-medium">{skill.name}</span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
+
+      <motion.div
+        className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {skillsData.map((skill) => {
+          const IconComponent = skill.icon;
+          return (
+            <motion.div
+              key={skill.name}
+              className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-soft bg-surface shadow-card-soft p-5 text-primary transition-transform duration-300 hover:-translate-y-1"
+              variants={itemVariants}
+            >
+              <IconComponent size={36} className={skill.color} />
+              <span className="text-sm font-semibold text-secondary text-center">{skill.name}</span>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </section>
   );
 }

@@ -1,39 +1,34 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("dark");
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Detectar preferencia inicial
-    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    if (stored) {
-      setTheme(stored);
-      document.documentElement.classList.toggle("dark", stored === "dark");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
+    setMounted(true);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-    localStorage.setItem("theme", newTheme);
-  };
+  if (!mounted) {
+    return <span className="h-11 w-11 animate-pulse rounded-full border border-soft bg-surface" aria-hidden />;
+  }
+
+  const isDark = (theme === "dark") || (theme === "system" && resolvedTheme === "dark");
+  const label = isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
 
   return (
     <button
-      onClick={toggleTheme}
-      className="ml-4 p-2 rounded-full border border-gray-700/40 bg-gray-800/60 text-cyan-300 hover:bg-cyan-500/20 hover:text-cyan-100 transition-all focus:ring-2 focus:ring-cyan-400/40"
-      aria-label="Alternar modo claro/oscuro"
-      title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-soft bg-surface p-2 text-primary shadow-card-soft transition hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+      aria-label={label}
+      title={label}
+      aria-pressed={isDark}
     >
-      {theme === "dark" ? <FaSun size={18} /> : <FaMoon size={18} />}
+      {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
     </button>
   );
 }

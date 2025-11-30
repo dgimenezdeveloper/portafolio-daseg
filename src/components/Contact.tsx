@@ -22,7 +22,7 @@ type FormState = {
 
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>({ status: 'idle', message: '' });
-  
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -49,64 +49,62 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-32 mt-24 px-4 bg-gray-900">
-      <div className="max-w-2xl mx-auto text-center bg-gray-800/60 rounded-2xl shadow-lg border border-gray-700/40 p-10">
+    <section id="contacto" className="section-shell">
+      <div className="mx-auto max-w-3xl text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400 drop-shadow-lg tracking-tight">¡Hablemos!</h2>
-          <p className="text-gray-400 text-lg mb-10 font-light">
+          
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-primary">¡Hablemos!</h2>
+          <p className="text-muted text-lg mt-3">
             ¿Tienes un proyecto en mente? Completa el formulario y me pondré en contacto lo antes posible.
           </p>
         </motion.div>
 
-        <motion.form 
+        <motion.form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-4 text-left"
+          className="mt-10 space-y-5 rounded-3xl border border-soft bg-surface px-6 py-8 text-left shadow-card-soft"
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
-            <input {...register('name')} id="name" className="input-field" />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+            <label htmlFor="name" className="mb-1 block text-sm font-semibold text-secondary">Nombre</label>
+            <input
+              {...register('name')}
+              id="name"
+              className="w-full rounded-2xl border border-soft bg-surface px-4 py-3 text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
+            />
+            {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
-            <input {...register('email')} id="email" className="input-field" />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+            <label htmlFor="email" className="mb-1 block text-sm font-semibold text-secondary">Email</label>
+            <input
+              {...register('email')}
+              id="email"
+              className="w-full rounded-2xl border border-soft bg-surface px-4 py-3 text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
+            />
+            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Mensaje</label>
-            <textarea {...register('message')} id="message" rows={5} className="input-field" />
-            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
+            <label htmlFor="message" className="mb-1 block text-sm font-semibold text-secondary">Mensaje</label>
+            <textarea
+              {...register('message')}
+              id="message"
+              rows={5}
+              className="w-full rounded-2xl border border-soft bg-surface px-4 py-3 text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
+            />
+            {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
           </div>
-          <div className="text-center pt-4">
+          <div className="pt-3 text-center">
             <button
               type="submit"
               disabled={formState.status === 'loading'}
-              className="bg-cyan-600 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 hover:bg-cyan-700 hover:scale-105 disabled:bg-gray-500 disabled:scale-100"
+              className="btn-ghost disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {formState.status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'}
+              {formState.status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
             </button>
           </div>
-          {formState.status === 'success' && <p className="text-green-500 mt-4">{formState.message}</p>}
-          {formState.status === 'error' && <p className="text-red-500 mt-4">{formState.message}</p>}
+          {formState.status === 'success' && <p className="text-green-500 text-center">{formState.message}</p>}
+          {formState.status === 'error' && <p className="text-red-500 text-center">{formState.message}</p>}
         </motion.form>
       </div>
-      <style jsx>{`
-        .input-field {
-          width: 100%;
-          background-color: #1F2937; /* bg-gray-800 */
-          border: 1px solid #374151; /* border-gray-700 */
-          border-radius: 0.375rem;
-          padding: 0.5rem 1rem;
-          color: white;
-          outline: none;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .input-field:focus {
-          border-color: #06b6d4; /* border-cyan-500 */
-          box-shadow: 0 0 0 2px #06b6d4;
-        }
-      `}</style>
     </section>
   );
 }

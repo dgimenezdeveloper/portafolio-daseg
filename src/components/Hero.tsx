@@ -25,58 +25,73 @@ const itemVariants = {
 export default function Hero() {
   return (
     <motion.section
-      className="min-h-screen flex flex-col justify-center items-center text-center p-4"
+      className="section-shell hero-section min-h-[80vh] flex flex-col items-center justify-center text-center relative overflow-hidden"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <motion.div className="relative mb-8" variants={itemVariants}>
-        <Image
-          src="/images/profile.png"
-          alt="Foto de perfil de Darío Gimenez"
-          width={150}
-          height={150}
-          className="rounded-full"
-          priority
-        />
-        <div className="absolute bottom-1 right-1 bg-green-500 w-6 h-6 rounded-full border-4 border-gray-900" />
-      </motion.div>
+      <div className="max-w-4xl mx-auto space-y-8 w-full">
+        <motion.div className="relative flex justify-center" variants={itemVariants}>
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-full blur-3xl opacity-70 bg-[radial-gradient(circle_at_top,var(--accent-glow),transparent_55%)]" aria-hidden />
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full border border-soft bg-surface shadow-card-soft flex items-center justify-center">
+              <Image
+                src="/images/profile.png"
+                alt="Foto de perfil de Darío Gimenez"
+                width={180}
+                height={180}
+                className="rounded-full object-cover"
+                priority
+              />
+              <div className="absolute bottom-2 right-2 flex items-center gap-2 rounded-full border border-soft bg-surface px-3 py-1 shadow-card-soft">
+                <span className="inline-flex w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse" />
+                <span className="text-xs font-semibold text-muted">Disponible</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
-      <motion.h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg" variants={itemVariants}>
-        Hola, soy Darío Gimenez
-      </motion.h1>
+        <motion.div className="space-y-4" variants={itemVariants}>
+          <p className="text-sm uppercase tracking-[0.4em] text-muted">Full Stack Engineer</p>
+          <motion.h1 className="text-4xl md:text-6xl font-extrabold text-primary leading-tight" variants={itemVariants}>
+            Hola, soy Darío Gimenez
+          </motion.h1>
+          <motion.p className="max-w-3xl mx-auto text-lg md:text-xl text-muted" variants={itemVariants}>
+            {cvData.aboutMeSummary}
+          </motion.p>
+        </motion.div>
 
-      <motion.p className="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 font-light" variants={itemVariants}>
-        {cvData.aboutMeSummary}
-      </motion.p>
-
-      <motion.div className="flex items-center gap-6" variants={itemVariants}>
-        <a
-          href="https://www.linkedin.com/in/daseg"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 bg-gray-800/60 rounded-full p-2 shadow-md border border-gray-700/40 transition-all hover:bg-cyan-500/20 hover:text-cyan-300 hover:scale-110 focus:ring-2 focus:ring-cyan-400/40"
-          aria-label="Perfil de LinkedIn"
-        >
-          <FaLinkedin size={28} />
-        </a>
-        <a
-          href="https://github.com/dgimenezdeveloper"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 bg-gray-800/60 rounded-full p-2 shadow-md border border-gray-700/40 transition-all hover:bg-cyan-500/20 hover:text-cyan-300 hover:scale-110 focus:ring-2 focus:ring-cyan-400/40"
-          aria-label="Perfil de GitHub"
-        >
-          <FaGithub size={28} />
-        </a>
-        <a
-          href="mailto:dgimenez.developer@gmail.com"
-          className="text-gray-400 bg-gray-800/60 rounded-full p-2 shadow-md border border-gray-700/40 transition-all hover:bg-cyan-500/20 hover:text-cyan-300 hover:scale-110 focus:ring-2 focus:ring-cyan-400/40"
-          aria-label="Enviar correo electrónico"
-        >
-          <MdEmail size={28} />
-        </a>
-      </motion.div>
+        <motion.div className="flex flex-wrap items-center justify-center gap-5" variants={itemVariants}>
+          <a
+            href="https://www.linkedin.com/in/daseg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost"
+            aria-label="Perfil de LinkedIn"
+          >
+            <FaLinkedin size={22} />
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/dgimenezdeveloper"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost"
+            aria-label="Perfil de GitHub"
+          >
+            <FaGithub size={22} />
+            GitHub
+          </a>
+          <a
+            href="mailto:dgimenez.developer@gmail.com"
+            className="btn-ghost"
+            aria-label="Enviar correo electrónico"
+          >
+            <MdEmail size={22} />
+            Escríbeme
+          </a>
+        </motion.div>
+      </div>
     </motion.section>
   );
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header"; // 1. Importa tu componente
+import Header from "@/components/Header";
+import ThemeProvider from "@/components/providers/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="!scroll-smooth">
+    <html lang="es" className="!scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Favicons actualizados y rutas absolutas para máxima compatibilidad */}
         <link rel="icon" href="/images/logo/favicon_io/favicon.ico" sizes="any" />
@@ -36,11 +37,11 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#0f172a" />
         <meta name="theme-color" content="#0f172a" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -73,19 +73,13 @@ export default function ProjectCard({ project }: ProjectProps) {
       scale={1.03}
       tiltMaxAngleX={12}
       tiltMaxAngleY={12}
-      className="rounded-2xl h-full"
+      className="rounded-3xl h-full"
     >
       <motion.div
         variants={itemVariants}
         onMouseMove={handleMouseMove}
         style={glowStyle as React.CSSProperties}
-        className="
-          project-card relative bg-gray-800/60 rounded-2xl overflow-hidden
-          flex flex-col group h-full border border-gray-700/40 shadow-xl
-          hover:border-cyan-400/80 hover:shadow-cyan-400/20 hover:scale-[1.025]
-          transition-all duration-300 ease-out
-          focus-within:ring-2 focus-within:ring-cyan-400/40
-        "
+        className="project-card relative flex h-full flex-col overflow-hidden rounded-3xl border border-soft bg-surface text-primary shadow-card-soft transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--accent)]"
       >
         {/* Imagen del proyecto */}
         <div className="relative w-full h-56 overflow-hidden">
@@ -97,31 +91,30 @@ export default function ProjectCard({ project }: ProjectProps) {
             sizes="(max-width: 768px) 100vw, 33vw"
             priority={recentProjects.includes(project.title)}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           {/* Insignia de nuevo */}
           {recentProjects.includes(project.title) && (
-            <span className="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md animate-pulse">
+            <span className="absolute top-3 left-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white shadow-card animate-pulse">
               Nuevo
             </span>
           )}
         </div>
 
         {/* Contenido de la tarjeta */}
-        <div className="p-7 flex-grow flex flex-col">
-          <h3 className="text-2xl font-extrabold text-white mb-2 group-hover:text-cyan-400 transition-colors tracking-tight">
+        <div className="flex flex-grow flex-col p-7">
+          <h3 className="mb-2 text-2xl font-extrabold text-primary tracking-tight">
             {project.title}
           </h3>
-          <p className="text-gray-200 text-base leading-relaxed mb-5 flex-grow font-light">
+          <p className="mb-5 flex-grow text-base leading-relaxed text-secondary">
             {project.description}
           </p>
 
           {/* Tags/Tecnologías */}
-          <div className="flex flex-wrap gap-2 mb-7">
+          <div className="mb-7 flex flex-wrap gap-2">
             {project.tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs bg-cyan-500/20 text-cyan-200 rounded-full
-                           border border-cyan-500/30 hover:bg-cyan-500/30 transition-colors font-medium"
+                className="tag-chip"
               >
                 {tag}
               </span>
@@ -129,30 +122,26 @@ export default function ProjectCard({ project }: ProjectProps) {
           </div>
 
           {/* Enlaces y galería */}
-          <div className="flex flex-wrap gap-4 mt-auto">
-            <a
-              href={project.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-gray-700/60 text-gray-200
-                         rounded-lg hover:bg-cyan-700/30 hover:text-cyan-100 transition-all duration-200
-                         border border-gray-600/50 hover:border-cyan-400/80 shadow-sm focus:ring-2 focus:ring-cyan-400/40"
-              aria-label={`Ver código de ${project.title} en GitHub`}
-            >
-              <FaGithub size={16} />
-              <span className="text-sm font-medium">Código</span>
-            </a>
+          <div className="mt-auto flex flex-wrap gap-3">
             <a
               href={project.links.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-200
-                         rounded-lg hover:bg-cyan-600/30 hover:text-cyan-50 transition-all duration-200
-                         border border-cyan-500/30 hover:border-cyan-400/80 shadow-sm focus:ring-2 focus:ring-cyan-400/40"
+              className="inline-flex items-center gap-2 rounded-2xl border border-soft bg-surface px-4 py-2 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
               aria-label={`Ver ${project.title} en vivo`}
             >
               <FaExternalLinkAlt size={14} />
-              <span className="text-sm font-medium">Ver Demo</span>
+              <span>Ver demo</span>
+            </a>
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-2xl border border-soft bg-surface px-4 py-2 text-sm font-semibold text-secondary transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+              aria-label={`Ver código de ${project.title} en GitHub`}
+            >
+              <FaGithub size={16} />
+              <span>Código</span>
             </a>
             {/* Botón galería */}
             {project.gallery && (
@@ -162,12 +151,10 @@ export default function ProjectCard({ project }: ProjectProps) {
               <button
                 type="button"
                 onClick={() => setModalOpen(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-cyan-700/20 text-cyan-200 rounded-lg
-                  hover:bg-cyan-800/40 hover:text-cyan-50 transition-all duration-200 border border-cyan-700/30
-                  hover:border-cyan-400/80 shadow-sm font-medium focus:ring-2 focus:ring-cyan-400/40"
+                className="inline-flex items-center gap-2 rounded-2xl border border-transparent bg-[var(--accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--accent)] transition-colors duration-200 hover:border-[var(--accent)]/50 hover:bg-[var(--accent-soft)]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
               >
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 7v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M4 7h16m-9 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm2 2 2.5-2.5a2 2 0 0 1 2.8 0L20 13M7 17l3-3a2 2 0 0 1 2.8 0l1.15 1.15"/></svg>
-                <span className="text-sm font-medium">Ver galería</span>
+                <span>Ver galería</span>
               </button>
             )}
           </div>
@@ -184,10 +171,10 @@ export default function ProjectCard({ project }: ProjectProps) {
       />
     )}
     {!isClient && project.gallery && modalOpen && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 text-white">
-        <div className="bg-gray-900 p-8 rounded-xl shadow-xl">
-          <p>La galería solo está disponible en el navegador.</p>
-          <button onClick={() => setModalOpen(false)} className="mt-4 px-4 py-2 bg-cyan-600 rounded-lg">Cerrar</button>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 text-primary">
+        <div className="rounded-2xl border border-soft bg-surface p-8 text-center shadow-card">
+          <p className="text-secondary">La galería solo está disponible en el navegador.</p>
+          <button onClick={() => setModalOpen(false)} className="mt-4 btn-primary">Cerrar</button>
         </div>
       </div>
     )}
