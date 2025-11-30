@@ -82,8 +82,9 @@ export default function ProjectCard({ project }: ProjectProps) {
         className="
           project-card relative bg-gray-800/60 rounded-2xl overflow-hidden
           flex flex-col group h-full border border-gray-700/40 shadow-xl
-          hover:border-cyan-400/70 hover:shadow-cyan-500/10 hover:shadow-2xl
-          transition-all duration-300
+          hover:border-cyan-400/80 hover:shadow-cyan-400/20 hover:scale-[1.025]
+          transition-all duration-300 ease-out
+          focus-within:ring-2 focus-within:ring-cyan-400/40
         "
       >
         {/* Imagen del proyecto */}
@@ -134,8 +135,8 @@ export default function ProjectCard({ project }: ProjectProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-gray-700/60 text-gray-200
-                         rounded-lg hover:bg-gray-600/80 hover:text-white transition-all
-                         border border-gray-600/50 hover:border-cyan-400/60 shadow-sm"
+                         rounded-lg hover:bg-cyan-700/30 hover:text-cyan-100 transition-all duration-200
+                         border border-gray-600/50 hover:border-cyan-400/80 shadow-sm focus:ring-2 focus:ring-cyan-400/40"
               aria-label={`Ver código de ${project.title} en GitHub`}
             >
               <FaGithub size={16} />
@@ -146,8 +147,8 @@ export default function ProjectCard({ project }: ProjectProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-200
-                         rounded-lg hover:bg-cyan-500/30 hover:text-cyan-100 transition-all
-                         border border-cyan-500/30 hover:border-cyan-400/70 shadow-sm"
+                         rounded-lg hover:bg-cyan-600/30 hover:text-cyan-50 transition-all duration-200
+                         border border-cyan-500/30 hover:border-cyan-400/80 shadow-sm focus:ring-2 focus:ring-cyan-400/40"
               aria-label={`Ver ${project.title} en vivo`}
             >
               <FaExternalLinkAlt size={14} />
@@ -162,8 +163,8 @@ export default function ProjectCard({ project }: ProjectProps) {
                 type="button"
                 onClick={() => setModalOpen(true)}
                 className="flex items-center gap-2 px-4 py-2 bg-cyan-700/20 text-cyan-200 rounded-lg
-                  hover:bg-cyan-700/40 hover:text-cyan-100 transition-all border border-cyan-700/30
-                  hover:border-cyan-400/70 shadow-sm font-medium"
+                  hover:bg-cyan-800/40 hover:text-cyan-50 transition-all duration-200 border border-cyan-700/30
+                  hover:border-cyan-400/80 shadow-sm font-medium focus:ring-2 focus:ring-cyan-400/40"
               >
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 7v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M4 7h16m-9 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm2 2 2.5-2.5a2 2 0 0 1 2.8 0L20 13M7 17l3-3a2 2 0 0 1 2.8 0l1.15 1.15"/></svg>
                 <span className="text-sm font-medium">Ver galería</span>

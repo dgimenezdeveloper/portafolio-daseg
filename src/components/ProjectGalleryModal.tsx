@@ -66,15 +66,16 @@ export default function ProjectGalleryModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.35, ease: 'easeInOut' }}
         onClick={onClose}
       >
         {/* Modal content */}
         <motion.div
           className="relative bg-gray-900 rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col border border-gray-700/50"
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          exit={{ scale: 0.95, opacity: 0 }}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
