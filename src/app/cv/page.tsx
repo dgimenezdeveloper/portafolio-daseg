@@ -38,7 +38,7 @@ const TimelineItem = ({ item }: { item: TimelineItemType }) => (
 
 export default function CVPage() {
   return (
-    <div className="max-w-4xl mx-auto py-24 px-6 pt-32">
+    <div className="max-w-4xl mx-auto py-24 px-6 pt-40">
       {/* --- HEADER --- */}
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex justify-between items-start mb-12">
         <div>
