@@ -98,7 +98,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={formState.status === 'loading'}
-              className="btn-ghost text-sm sm:text-base disabled:cursor-not-allowed disabled:opacity-70"
+              className="btn-ghost text-sm sm:text-base disabled:cursor-not-allowed disabled:opacity-70 hover:cursor-pointer"
             >
               {formState.status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
             </button>
