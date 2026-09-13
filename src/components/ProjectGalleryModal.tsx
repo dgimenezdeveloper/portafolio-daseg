@@ -4,20 +4,20 @@ import React, { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-type ProjectGalleryModalProps = {
+export type ProjectGalleryModalProps = {
   images?: Record<string, string[]> | string[];
   open: boolean;
-  onCloseAction: () => void;
+  onClose: () => void;
   projectTitle?: string;
 };
 
 export default function ProjectGalleryModal({
   images,
   open,
-  onCloseAction,
+  onClose,
   projectTitle = "Galería del Proyecto",
 }: ProjectGalleryModalProps) {
-  // Convertir array simple a objeto con una sola sección si es necesario (memoizado y sanitizado)
+  // Sanitizar y agrupar imágenes por sección
   const sections = useMemo(() => {
     if (!images) return {};
     if (Array.isArray(images)) {
@@ -49,7 +49,7 @@ export default function ProjectGalleryModal({
   useEffect(() => {
     if (!open || sectionNames.length === 0) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onCloseAction();
+      if (e.key === "Escape") onClose();
       const currentImages = sections[currentSection] || [];
       if (currentImages.length > 0) {
         if (e.key === "ArrowRight") setCurrentIndex((c) => (c + 1) % currentImages.length);
@@ -58,7 +58,7 @@ export default function ProjectGalleryModal({
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [open, currentSection, sections, sectionNames, onCloseAction]);
+  }, [open, currentSection, sections, sectionNames, onClose]);
 
   if (!open || sectionNames.length === 0) return null;
 
@@ -80,7 +80,7 @@ export default function ProjectGalleryModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        onClick={onCloseAction}
+        onClick={onClose}
       >
         <motion.div
           className="relative flex h-[90vh] w-full max-w-7xl flex-col rounded-3xl border border-soft bg-surface shadow-card"
@@ -94,7 +94,7 @@ export default function ProjectGalleryModal({
           <div className="flex items-center justify-between border-b border-soft p-6">
             <h2 className="text-2xl font-bold text-primary">{projectTitle}</h2>
             <button
-              onClick={onCloseAction}
+              onClick={onClose}
               className="text-muted transition-colors hover:text-[var(--accent)]"
               aria-label="Cerrar galería"
             >
@@ -159,7 +159,7 @@ export default function ProjectGalleryModal({
                 )}
               </div>
 
-              {/* Info y miniaturas */}
+              {/* Miniaturas */}
               <div className="space-y-4">
                 <div className="text-center">
                   <span className="text-sm font-medium text-secondary">

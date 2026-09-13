@@ -4,6 +4,7 @@ export interface Project {
   title: string;
   description: string;
   image?: string;
+  device?: "mobile" | "desktop";
   tags: string[];
   links: {
     github: string;
@@ -18,11 +19,26 @@ export const projectsData: Project[] = [
     description:
       "SaaS B2B para gastronomía con recálculo de recetas en cascada y alertas automáticas vía n8n ante aumentos de insumos.",
     image: "/projects/margenx/margenx-01.png",
-    
+    // device: "mobile", // 👈 Indicamos que es captura móvil
+    gallery: {
+      "Inicio": [
+        "/projects/margenx/margenx-01.png",
+        "/projects/margenx/margenx-02.png",
+      ],
+      "Insumos & Costos": [
+        "/projects/margenx/insumos.png",
+      ],
+      "Productos & Recetas": [
+        "/projects/margenx/productos.png",
+      ],
+      "Perfil & Configuración": [
+        "/projects/margenx/perfil.png",
+      ],
+    },
     tags: ["React 19", "Express 5", "PostgreSQL 16", "Docker / n8n"],
     links: {
       github: "https://github.com/dgimenezdeveloper/margenx",
-      live: "https://margenx.tech",
+      live: "https://dev.margenx.tech",
     },
   },
   {
