@@ -1,98 +1,64 @@
 {
-"aboutMeSummary": "Apasionado por la tecnología, la innovación y el desarrollo de talento, soy fundador y director de proyectos en Folkode, una software factory colaborativa que impulsa a estudiantes y profesionales a construir soluciones digitales reales mientras desarrollan sus carreras en tecnología.\n\nComo desarrollador backend, lidero equipos multidisciplinarios en el diseño, desarrollo y despliegue de software a medida, abarcando desde APIs robustas y e-commerce hasta automatización de procesos y sistemas empresariales escalables. Trabajo con tecnologías como Node.js (Express, NestJS), Python (Flask, FastAPI, Django), Firebase, PostgreSQL, MongoDB y herramientas de integración y automatización.\n\nHe liderado proyectos como Andet, La Revisteria, Autopartes y Luminova, implementando autenticación segura, flujos de trabajo automatizados y despliegue en producción con CI/CD (Render, Railway). Mi stack incluye además Docker, Swagger/OpenAPI, Postman, Power BI, y herramientas de IA como ChatGPT, Gemini y OpenAI para generación de código, documentación y bots de asistencia.\n\nMás allá del código, creo en el poder del aprendizaje práctico y la comunidad. En Folkode, mentoreo a nuevos talentos en buenas prácticas de desarrollo, metodologías ágiles (Scrum, Kanban), GitFlow y pair programming promoviendo un ambiente de colaboración, mejora continua y excelencia.\n\nAbierto a oportunidades como Backend Developer, DevOps Engineer, Automation Specialist, Integrador de APIs o roles técnicos con impacto real.\n¿Trabajas en algo interesante o buscas un desarrollador con visión técnica, educativa y orientado a soluciones reales? Conectemos!",
-  "additionalInfo": "Como profesional en formación, dedico mi tiempo de manera intensiva al aprendizaje continuo y a la aplicación práctica de las tecnologías. Poseo un perfil técnico sólido y una gran motivación por integrarme al ámbito laboral, donde pueda aportar mis conocimientos y, al mismo tiempo, enriquecerme con nuevas experiencias.",
+  "aboutMeSummary": "Ingeniero de Software Full-Stack, Scrum Master y Director de Proyectos en Folkode (software factory colaborativa). Con una sólida trayectoria previa como Analista Técnico Químico Senior en la industria farmacéutica (Roemmers SACIF) gestionando sistemas ERP corporativos (SAP) y normativas de control de calidad, aporto un enfoque único que combina rigor metodológico, trazabilidad de procesos e ingeniería de software de alto rendimiento.\n\nEspecializado en el diseño y despliegue de sistemas de misión crítica: plataformas B2B SaaS, arquitecturas multi-tenant, paneles ERP de control de márgenes en tiempo real e integraciones automatizadas con webhooks. Mi stack tecnológico central comprende React 19, Next.js (App Router), Node.js (Express), Python (FastAPI, Django REST) y PostgreSQL 16 con Prisma ORM y SQLAlchemy, complementado con pipelines de CI/CD (GitHub Actions), contenedorización con Docker, orquestación en VPS Linux y motores de automatización como n8n y Celery.\n\nComo Scrum Master y Technical Lead, dirijo ceremonias ágiles, coordino equipos multidisciplinarios y automatizo la gobernanza de repositorios mediante GitHub Actions y GraphQL. Enfocado en resolver problemas operativos reales para clientes y empresas con mentalidad de entrega continua, escalabilidad y excelencia técnica.",
+  "additionalInfo": "Disponible para contratos internacionales remotos, consultoría de arquitectura de software, liderazgo técnico de proyectos y optimización de procesos operativos.",
   "contact": {
-    "address": "General Miller 2176 - Glew, Alte. Brown",
-    "phone": "1162193426",
+    "address": "Buenos Aires, Argentina (Remote Available Worldwide)",
+    "phone": "+54 11 6219 3426",
     "email": "dgimenez.developer@gmail.com",
-    "portfolio": "https://dgimenezdeveloper.netlify.app/",
+    "portfolio": "https://daseg.vercel.app",
     "github": "https://github.com/dgimenezdeveloper"
   },
   "languages": [
-    { "name": "Español", "level": "Idioma nativo" },
-    { "name": "Inglés", "level": "Intermedio", "proficiency": "B1" }
+    { "name": "Español", "level": "Nativo" },
+    { "name": "Inglés", "level": "Profesional / Técnico (B1+)", "proficiency": "B1+" }
   ],
   "softSkills": [
-    "Trabajo en equipo",
-    "Fomento de espíritu de equipo",
-    "Gestión de documentos",
-    "Coordinación",
-    "Razonamiento lógico",
-    "Comunicación clara",
-    "Organización del trabajo",
-    "Resolución de problemas",
-    "Capacidad de organización",
-    "Atención al cliente",
-    "Visión espacial y organizativa",
-    "Eficiencia y mejora del rendimiento",
-    "Gestión del tiempo",
-    "Gestión administrativa",
-    "Optimización de procesos",
-    "Liderazgo y gestión de equipos",
-    "Responsabilidad y puntualidad"
+    "Liderazgo ágil y Scrum Master",
+    "Gestión de sprints y entrega continua",
+    "Optimización y trazabilidad de procesos",
+    "Arquitectura de software y base de datos",
+    "Comunicación técnica clara",
+    "Resolución pragmática de problemas",
+    "Mentoría de desarrolladores y Pair Programming",
+    "Criterio de calidad y cumplimiento de entregas"
   ],
   "education": [
     {
-      "institution": "Universidad Nacional Guillermo Brown",
-      "location": "Burzaco, Bs.As",
-      "degree": "Técnico universitario en programación",
-      "period": "01/2024 - 12/2026",
-      "description": "Formación en herramientas de programación avanzadas para recopilar, curar, analizar requerimientos y para la gestión e implementación de software durante el desarrollo de proyectos informáticos."
+      "institution": "Universidad Nacional Guillermo Brown (UNaB)",
+      "location": "Buenos Aires, Argentina",
+      "degree": "Tecnicatura Universitaria en Programación / Desarrollo de Software",
+      "period": "2024 - 2026",
+      "description": "Formación en algoritmos avanzados, arquitecturas de software, bases de datos relacionales, inteligencia artificial y gestión de proyectos de ingeniería."
     },
     {
-      "institution": "Talento Tech (ex Codo a Codo)",
-      "location": "CABA, Bs.As.",
-      "degree": "Full Stack Python",
-      "period": "08/2022 - 12/2022",
-      "description": "Programación informática, desarrollo Front-end y Back-end."
-    },
-    {
-      "institution": "Universidad Tecnológica Nacional",
-      "location": "Facultad Regional Tucumán",
-      "degree": "Desarrollo de páginas webs",
-      "period": "05/2022 - 08/2022",
-      "description": "Desarrollo Front-end, contenido digital y recursos informáticos para crear sitios web a través de lenguajes especializados como Html, CSS y JavaScript."
-    },
-    {
-      "institution": "EETN° 33 - Fundición Maestranza del Plumerillo",
-      "location": "CABA, Bs.As.",
+      "institution": "E.E.S.T. N° 33",
+      "location": "Buenos Aires, Argentina",
       "degree": "Técnico Químico",
-      "period": "03/2000 - 12/2006",
-      "description": "Análisis y control de procesos químicos, investigación y desarrollo de nuevos productos, y gestión de laboratorios y equipos."
+      "period": "2000 - 2006",
+      "description": "Análisis cuantitativo/cualitativo, gestión de laboratorios, control estadístico de procesos y protocolos de aseguramiento de calidad industrial."
     }
   ],
   "experience": [
     {
-      "role": "Responsable de almacén",
-      "company": "Autónomo",
-      "location": "Glew, Alte. Brown",
-      "period": "08/2015 - Actual",
+      "role": "Cofundador, Scrum Master & Full-Stack Lead",
+      "company": "Folkode Group (Software Factory)",
+      "location": "Buenos Aires, Argentina (Remoto)",
+      "period": "07/2024 - Actualidad",
       "description": [
-        "Planificación y supervisión diaria del almacén, control de inventario y atención a clientes/proveedores.",
-        "Implementación de medidas de seguridad y mantenimiento del orden.",
-        "Control administrativo: registro de ingresos/egresos, facturación y documentación."
-      ]
-    },
-    {
-      "role": "Personal de sala",
-      "company": "Teatro Colón de Buenos Aires",
-      "location": "CABA, Buenos Aires",
-      "period": "01/2018 - 12/2024",
-      "description": [
-        "Recepción y orientación al público, verificación de entradas y ubicación de localidades.",
-        "Supervisión de normas, atención en emergencias y soporte en visitas guiadas.",
-        "Colaboración logística en eventos y control de acceso a áreas restringidas."
+        "Dirección de desarrollo ágil (Scrum/Kanban) y liderazgo de equipos técnicos en soluciones B2B y plataformas a medida.",
+        "Arquitectura e implementación de sistemas emblemáticos: MargenX (SaaS de márgenes), Allmart (E-Commerce ERP) y Congreso UNaB (Acreditación QR masiva).",
+        "Configuración de pipelines de CI/CD en GitHub Actions, Docker DevContainers y despliegues en VPS Linux y Vercel."
       ]
     },
     {
       "role": "Analista Técnico Químico Senior",
       "company": "Roemmers SACIF",
-      "location": "Luis Guillon, Buenos Aires",
+      "location": "Buenos Aires, Argentina",
       "period": "04/2012 - 07/2015",
       "description": [
-        "Análisis y muestreo. Coordinación de equipo y asignación de análisis. Atención a proveedores.",
-        "Administración de reclamos de clientes y no conformidades.",
-        "Manejo de sistema de gestión SAP y desarrollo y actualización de técnicas analíticas."
+        "Control analítico de calidad, muestreo estandarizado y gestión de no conformidades en planta farmacéutica.",
+        "Manejo y registro en sistema de gestión empresarial corporativo SAP (módulos de calidad y trazabilidad de inventarios).",
+        "Coordinación operativa de turnos y cumplimiento de estrictas normativas GMP/GLP."
       ]
     }
   ]

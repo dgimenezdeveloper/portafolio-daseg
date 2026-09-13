@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 type ProjectGalleryModalProps = {
-  images: Record<string, string[]> | string[];
+  images?: Record<string, string[]> | string[];
   open: boolean;
   onClose: () => void;
   projectTitle?: string;
@@ -17,16 +17,25 @@ export default function ProjectGalleryModal({
   onClose,
   projectTitle = "Galería del Proyecto",
 }: ProjectGalleryModalProps) {
-  // Convertir array simple a objeto con una sola sección si es necesario (memoizado)
-  const sections = useMemo(() => 
-    Array.isArray(images) 
-      ? { "Principal": images } 
-      : images,
-    [images]
-  );
-  
+  // Convertir array simple a objeto con una sola sección si es necesario (memoizado y sanitizado)
+  const sections = useMemo(() => {
+    if (!images) return {};
+    if (Array.isArray(images)) {
+      const valid = images.filter((img): img is string => typeof img === "string" && img.trim().length > 0);
+      return valid.length > 0 ? { Principal: valid } : {};
+    }
+    const sanitized: Record<string, string[]> = {};
+    for (const [key, list] of Object.entries(images)) {
+      if (Array.isArray(list)) {
+        const valid = list.filter((img): img is string => typeof img === "string" && img.trim().length > 0);
+        if (valid.length > 0) sanitized[key] = valid;
+      }
+    }
+    return sanitized;
+  }, [images]);
+
   const sectionNames = useMemo(() => Object.keys(sections), [sections]);
-  const [currentSection, setCurrentSection] = useState(sectionNames[0]);
+  const [currentSection, setCurrentSection] = useState<string>(sectionNames[0] || "");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -38,21 +47,25 @@ export default function ProjectGalleryModal({
 
   // Cerrar con Escape y navegar con flechas
   useEffect(() => {
-    if (!open) return;
+    if (!open || sectionNames.length === 0) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      const currentImages = sections[currentSection];
-      if (e.key === "ArrowRight") setCurrentIndex((c) => (c + 1) % currentImages.length);
-      if (e.key === "ArrowLeft") setCurrentIndex((c) => (c - 1 + currentImages.length) % currentImages.length);
+      const currentImages = sections[currentSection] || [];
+      if (currentImages.length > 0) {
+        if (e.key === "ArrowRight") setCurrentIndex((c) => (c + 1) % currentImages.length);
+        if (e.key === "ArrowLeft") setCurrentIndex((c) => (c - 1 + currentImages.length) % currentImages.length);
+      }
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [open, currentSection, sections, onClose]);
+  }, [open, currentSection, sections, sectionNames, onClose]);
 
-  if (!open) return null;
+  if (!open || sectionNames.length === 0) return null;
 
-  const currentImages = sections[currentSection];
+  const currentImages = sections[currentSection] || [];
   const currentImage = currentImages[currentIndex];
+
+  if (!currentImage) return null;
 
   const handleSectionChange = (section: string) => {
     setCurrentSection(section);
@@ -66,16 +79,15 @@ export default function ProjectGalleryModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.35, ease: 'easeInOut' }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
         onClick={onClose}
       >
-        {/* Modal content */}
         <motion.div
           className="relative flex h-[90vh] w-full max-w-7xl flex-col rounded-3xl border border-soft bg-surface shadow-card"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
-          transition={{ duration: 0.35, ease: 'easeInOut' }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -92,7 +104,6 @@ export default function ProjectGalleryModal({
 
           {/* Content */}
           <div className="flex flex-1 overflow-hidden">
-            {/* Sidebar de secciones (solo si hay más de una sección) */}
             {sectionNames.length > 1 && (
               <div className="w-48 border-r border-soft bg-surface-muted/70 overflow-y-auto">
                 <div className="space-y-2 p-4">
@@ -118,7 +129,6 @@ export default function ProjectGalleryModal({
 
             {/* Área principal */}
             <div className="flex flex-1 flex-col p-6">
-              {/* Imagen principal */}
               <div className="relative mb-4 flex flex-1 items-center justify-center overflow-hidden rounded-2xl border border-soft bg-surface-muted">
                 <Image
                   src={currentImage}
@@ -128,8 +138,7 @@ export default function ProjectGalleryModal({
                   priority
                   sizes="(max-width: 1920px) 100vw"
                 />
-                
-                {/* Botones de navegación */}
+
                 {currentImages.length > 1 && (
                   <>
                     <button
@@ -152,15 +161,13 @@ export default function ProjectGalleryModal({
 
               {/* Info y miniaturas */}
               <div className="space-y-4">
-                {/* Contador */}
                 <div className="text-center">
                   <span className="text-sm font-medium text-secondary">
-                    {currentIndex + 1} / {currentImages.length} 
+                    {currentIndex + 1} / {currentImages.length}
                     {sectionNames.length > 1 && <span className="ml-2 text-[var(--accent)]">• {currentSection}</span>}
                   </span>
                 </div>
 
-                {/* Miniaturas */}
                 {currentImages.length > 1 && (
                   <div className="flex max-w-full justify-center gap-2 overflow-x-auto pb-2">
                     {currentImages.map((img, idx) => (

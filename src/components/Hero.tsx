@@ -35,7 +35,7 @@ export default function Hero() {
       animate="visible"
     >
       <div className="max-w-6xl mx-auto w-full space-y-8 sm:space-y-12">
-        
+
         {/* Perfil y presentación principal */}
         <motion.div className="text-center space-y-6" variants={itemVariants}>
           <div className="relative flex justify-center">
@@ -62,14 +62,15 @@ export default function Hero() {
 
           <div className="space-y-4">
             <p className="text-xs sm:text-sm uppercase tracking-[0.35em] text-[var(--accent)] font-semibold">
-              Full Stack Engineer
+              Full-Stack Engineer & Scrum Master
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary leading-tight">
-              Hola, soy <span className="text-[var(--accent)]">Darío Gimenez</span>
+              Hola, soy <span className="text-[var(--accent)]">Darío Giménez</span>
             </h1>
             <p className="max-w-2xl mx-auto text-base sm:text-lg text-secondary leading-relaxed px-4">
-              Fundador y director de proyectos en <span className="font-semibold text-[var(--accent)]">Folkode</span>, 
-              una software factory colaborativa impulsando soluciones digitales. 
+              Cofundador y Project Lead en <span className="font-semibold text-[var(--accent)]">Folkode</span>.
+              Ex-analista de procesos industriales (Roemmers/SAP) especializado en construir sistemas web escalables,
+              ERPs multi-tenant y flujos automatizados con <span className="font-semibold text-primary">React, Node.js y Python</span>.
             </p>
           </div>
 
@@ -107,7 +108,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Cards de especialidades */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12"
           variants={containerVariants}
         >
@@ -120,9 +121,9 @@ export default function Hero() {
                 <FaCode size={30} />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-primary mb-2">Desarrollo Full Stack</h3>
+                <h3 className="text-lg font-bold text-primary mb-2">Desarrollo Full-Stack</h3>
                 <p className="text-sm text-secondary leading-relaxed">
-                  Especialista en Node.js, React, Next.js, Python (Flask, Django) y bases de datos modernas
+                  Arquitecturas modernas con React 19, Next.js, Express, FastAPI, Django REST y PostgreSQL con Prisma ORM.
                 </p>
               </div>
             </div>
@@ -137,9 +138,9 @@ export default function Hero() {
                 <FaRocket size={30} />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-primary mb-2">Liderazgo Técnico</h3>
+                <h3 className="text-lg font-bold text-primary mb-2">Liderazgo Ágil & DevOps</h3>
                 <p className="text-sm text-secondary leading-relaxed">
-                  Dirijo equipos multidisciplinarios aplicando Scrum, Kanban y GitFlow con CI/CD
+                  Scrum Master facilitando ceremonias ágiles, CI/CD con GitHub Actions, Docker DevContainers y despliegues en VPS Linux.
                 </p>
               </div>
             </div>
@@ -154,9 +155,9 @@ export default function Hero() {
                 <FaLightbulb size={30} />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-primary mb-2">Innovación & IA</h3>
+                <h3 className="text-lg font-bold text-primary mb-2">Automatización & Datos</h3>
                 <p className="text-sm text-secondary leading-relaxed">
-                  Integro herramientas de IA como ChatGPT, Gemini y OpenAI para automatización y mejora continua
+                  Integración de webhooks y flujos de n8n, bots conversacionales con WhatsApp Cloud API, tareas Celery y Computer Vision.
                 </p>
               </div>
             </div>
@@ -164,12 +165,12 @@ export default function Hero() {
         </motion.div>
 
         {/* Estadísticas rápidas */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 pt-4 border-t border-soft/50"
         >
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-[var(--accent)]">2+</div>
+            <div className="text-3xl sm:text-4xl font-bold text-[var(--accent)]">4+</div>
             <div className="text-xs sm:text-sm text-muted mt-1">Años de experiencia</div>
           </div>
           <div className="text-center">
