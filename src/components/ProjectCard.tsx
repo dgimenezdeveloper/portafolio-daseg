@@ -60,13 +60,13 @@ export default function ProjectCard({ project }: ProjectProps) {
   return (
     <>
       <Tilt
-        perspective={1200}
+        perspective={1800}        // Perspectiva más natural
         glareEnable={true}
-        glareMaxOpacity={0.13}
+        glareMaxOpacity={0.08}    // Brillo sutil, no deslumbrante
         glarePosition="all"
-        scale={1.03}
-        tiltMaxAngleX={12}
-        tiltMaxAngleY={12}
+        scale={1.01}             // Escala casi imperceptible (no salta a la cara)
+        tiltMaxAngleX={4}         // Inclinación suave de 4° (en lugar de 12°)
+        tiltMaxAngleY={4}
         className="rounded-3xl h-full"
       >
         <motion.div
@@ -168,8 +168,8 @@ export default function ProjectCard({ project }: ProjectProps) {
         <ProjectGalleryModal
           images={project.gallery}
           open={modalOpen}
-          onClose={() => setModalOpen(false)}
           projectTitle={project.title}
+          onCloseAction={() => setModalOpen(false)}
         />
       )}
     </>

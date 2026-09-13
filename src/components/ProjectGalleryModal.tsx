@@ -7,14 +7,14 @@ import Image from "next/image";
 type ProjectGalleryModalProps = {
   images?: Record<string, string[]> | string[];
   open: boolean;
-  onClose: () => void;
+  onCloseAction: () => void;
   projectTitle?: string;
 };
 
 export default function ProjectGalleryModal({
   images,
   open,
-  onClose,
+  onCloseAction,
   projectTitle = "Galería del Proyecto",
 }: ProjectGalleryModalProps) {
   // Convertir array simple a objeto con una sola sección si es necesario (memoizado y sanitizado)
@@ -49,7 +49,7 @@ export default function ProjectGalleryModal({
   useEffect(() => {
     if (!open || sectionNames.length === 0) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onCloseAction();
       const currentImages = sections[currentSection] || [];
       if (currentImages.length > 0) {
         if (e.key === "ArrowRight") setCurrentIndex((c) => (c + 1) % currentImages.length);
@@ -58,7 +58,7 @@ export default function ProjectGalleryModal({
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [open, currentSection, sections, sectionNames, onClose]);
+  }, [open, currentSection, sections, sectionNames, onCloseAction]);
 
   if (!open || sectionNames.length === 0) return null;
 
@@ -80,7 +80,7 @@ export default function ProjectGalleryModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        onClick={onClose}
+        onClick={onCloseAction}
       >
         <motion.div
           className="relative flex h-[90vh] w-full max-w-7xl flex-col rounded-3xl border border-soft bg-surface shadow-card"
@@ -94,7 +94,7 @@ export default function ProjectGalleryModal({
           <div className="flex items-center justify-between border-b border-soft p-6">
             <h2 className="text-2xl font-bold text-primary">{projectTitle}</h2>
             <button
-              onClick={onClose}
+              onClick={onCloseAction}
               className="text-muted transition-colors hover:text-[var(--accent)]"
               aria-label="Cerrar galería"
             >
